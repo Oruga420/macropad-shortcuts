@@ -2,6 +2,16 @@
 
 App de bandeja de Windows que convierte un macropad de 6 teclas (que envía `Alt+R/X/S/F/J/Num9`) en accesos directos configurables: lanzar apps, abrir URLs, ejecutar comandos, enviar combos de teclado o escribir texto.
 
+## Instalación automatizada con Claude Code
+
+¿No quieres clonar, instalar deps y configurar a mano? Descarga **[CLAUDE_INSTALL.md](CLAUDE_INSTALL.md)**, edita la sección "🎛️ Bindings deseados" con lo que quieras en cada tecla, y pégaselo a Claude Code. Hace todo: clona el repo, instala dependencias, escribe `config.json`, registra autostart al login (opcional) y lanza la app.
+
+Raw URL para curl:
+
+```powershell
+iwr -OutFile CLAUDE_INSTALL.md https://raw.githubusercontent.com/Oruga420/macropad-shortcuts/main/CLAUDE_INSTALL.md
+```
+
 ## Cómo funciona
 
 El macropad manda `Alt + <tecla>` en milisegundos. El listener detecta `Alt + tecla objetivo` con `< 5 ms` de diferencia y asume que viene del hardware, no del usuario. En ese caso suprime la pulsación original y dispara la acción asignada. Si lo presionas tú a mano (delay normal humano), pasa de largo.
